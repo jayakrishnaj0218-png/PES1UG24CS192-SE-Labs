@@ -1,0 +1,74 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1600 820] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 3624 >>
+stream
+BT /F2 24 Tf 60 780 Td (LAB 3 - ARCHITECTURE SELECTION & COMPONENT MODEL) Tj ET
+BT /F2 17 Tf 60 752 Td (Smart Lab Equipment & Slot Reservation Portal) Tj ET
+BT /F1 14 Tf 60 730 Td (Name: Jayakrishna J S | SRN: PES1UG24CS192) Tj ET
+BT /F2 17 Tf 60 695 Td (1. Architecture Selection) Tj ET
+BT /F1 13 Tf 60 672 Td (We chose Layered Architecture for the Smart Lab Equipment & Slot Reservation Portal. The system separates) Tj ET
+BT /F1 13 Tf 60 652 Td (presentation, business rules, and data management into clear layers, matching the portal workflow documented in Labs 1 and 2.) Tj ET
+BT /F2 17 Tf 60 615 Td (2. Architectural Style Analysis) Tj ET
+BT /F2 12 Tf 60 592 Td (Style) Tj ET
+BT /F2 12 Tf 260 592 Td (Relevant advantages) Tj ET
+BT /F2 12 Tf 820 592 Td (Relevant limitations) Tj ET
+BT /F2 12 Tf 60 568 Td (Layered) Tj ET
+BT /F1 12 Tf 260 568 Td (Clear separation; easy to enforce reservation/calibration rules;) Tj ET
+BT /F1 12 Tf 260 550 Td (suitable for a transactional portal.) Tj ET
+BT /F1 12 Tf 820 568 Td (Some inter-layer overhead; scaling is less granular.) Tj ET
+BT /F2 12 Tf 60 520 Td (Microservices) Tj ET
+BT /F1 12 Tf 260 520 Td (Independent deployment/scaling and fault isolation.) Tj ET
+BT /F1 12 Tf 820 520 Td (Adds operational/network complexity and distributed-data) Tj ET
+BT /F1 12 Tf 820 502 Td (consistency concerns for a small controlled portal.) Tj ET
+BT /F2 12 Tf 60 472 Td (Client-Server) Tj ET
+BT /F1 12 Tf 260 472 Td (Centralized control and straightforward data consistency.) Tj ET
+BT /F1 12 Tf 820 472 Td (Less separation of responsibilities; centralized server) Tj ET
+BT /F1 12 Tf 820 454 Td (can become a bottleneck.) Tj ET
+BT /F2 17 Tf 60 415 Td (3. Two Scenario-Specific Reasons) Tj ET
+BT /F1 13 Tf 60 392 Td (1\) The core rules are transaction-heavy and centralized: a reservation must be at most 2 hours, within 7 days, use calibrated) Tj ET
+BT /F1 13 Tf 60 374 Td (equipment, and reject an occupied slot. Keeping these rules in one business layer makes them consistent and testable.) Tj ET
+BT /F1 13 Tf 60 352 Td (2\) The requirements emphasize immediate calibration visibility, cancellation, returns, and concurrent reservation control,) Tj ET
+BT /F1 13 Tf 60 334 Td (which fit a single application with a shared data layer and strict database locking.) Tj ET
+BT /F2 17 Tf 60 295 Td (4. Security Advantage) Tj ET
+BT /F1 13 Tf 60 272 Td (Authentication and role authorization are isolated in the business layer. Every reservation or calibration-management request) Tj ET
+BT /F1 13 Tf 60 254 Td (can be checked before the operation reaches the data layer, directly supporting the requirement that unauthorized users must be denied access.) Tj ET
+BT /F2 17 Tf 60 215 Td (5. Performance Benefit) Tj ET
+BT /F1 13 Tf 60 192 Td (The architecture keeps the UI responsive while the business layer performs focused validation and the data layer handles) Tj ET
+BT /F1 13 Tf 60 174 Td (indexed, transactional reads/writes. Database-level locking can protect the reservation transaction from races while supporting) Tj ET
+BT /F1 13 Tf 60 156 Td (the stated 200 ms concurrent-request target.) Tj ET
+BT /F2 17 Tf 60 117 Td (6. Component Model) Tj ET
+BT /F1 13 Tf 60 94 Td (The diagram contains six components: Student/Technician UI, Authentication & Authorization, Reservation Manager,) Tj ET
+BT /F1 13 Tf 60 76 Td (Equipment & Calibration Manager, Return & Late-Return Manager, and Lab Reservation Database. Interfaces include) Tj ET
+BT /F1 13 Tf 60 58 Td (IAuthAPI, IReservationAPI, IEquipmentAPI, IReturnAPI, and IRepository, with provided/required UML notation and labeled dependencies.) Tj ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000252 00000 n 
+0000003928 00000 n 
+0000003998 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+4073
+%%EOF
